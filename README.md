@@ -12,7 +12,8 @@ This repository contains exercises focused on using Splunk Enterprise platform t
 
 The Splunk platform accepts any type of data. In particular, it works with all IT streaming and historical data. 
 * Source of Data - The source of the data can be event logs, web logs, live application logs, network feeds, system metrics, change monitoring, message queues, archive files, and so on.
-In general, data sources are grouped into the following categories - Files and Directories, Network events, IT Operations, Cloud services, Database services, Security services, Virtualization services, Application servers, Windows sources, Other sources. 
+* In general, data sources are grouped into the following categories - Files and Directories, Network events, IT Operations, Cloud services, Database services, Security services, Virtualization services,   
+  Application servers, Windows sources, Other sources. 
 
 ## Projects
 
