@@ -24,4 +24,13 @@ This project covers how to upload data to Splunk Enterprise platform tool.
 
 * Key Topics: adding data
 * Tools: Splunk Enterprise platform tool.
-* Data: Tutorial data (The tutorial data file is updated daily and contains events that are timestamped for the previous seven days. The tutorial data contains several types of information about the fictitious online store Buttercup Games). The information includes access.log files, secure.log files, and vendor_sales.log files from mail servers and web accounts.
+* Data: Tutorial data
+
+**NOTE** The tutorial data file is updated daily and contains events that are timestamped for the previous seven days. The tutorial data contains several types of information about the fictitious online store             Buttercup Games). The information includes access.log files, secure.log files, and vendor_sales.log files from mail servers and web accounts.
+
+### 2. Using the Search Splunk App
+This project covers how to use the Search app on Splunk Enterprise platform tool.
+
+* Key Topics: searching data
+* Tools: Splunk Enterprise platform tool.
+* Data: Tutorial data 
