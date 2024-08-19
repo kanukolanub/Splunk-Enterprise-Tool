@@ -18,9 +18,10 @@ The Splunk platform accepts any type of data. In particular, it works with all I
 
 ## Projects
 
-### 1. [Analyzing HTTP Traffic with Wireshark](https://github.com/kanukoalanub/Wireshark-projects/blob/main/Project-1-Analyzing-HTTP-Traffic-with-Wireshark.md) 
+### 1. Uploading the data
 
-This project covers how to capture and analyze HTTP traffic using Wireshark. And also setting up captures, filtering HTTP traffic, analyzing HTTP requests and responses, and extracting payload data.
+This project covers how to upload data to Splunk Enterprise platform tool.
 
-* Key Topics: HTTP Traffic, Packet Analysis, Filtering, Payload Extraction
-* Tools: Wireshark, Web Browser
+* Key Topics: adding data
+* Tools: Splunk Enterprise platform tool.
+* Data: Tutorial data (The tutorial data file is updated daily and contains events that are timestamped for the previous seven days. The tutorial data contains several types of information about the fictitious online store Buttercup Games). The information includes access.log files, secure.log files, and vendor_sales.log files from mail servers and web accounts.
