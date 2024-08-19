@@ -9,6 +9,7 @@ This repository contains exercises focused on using Splunk Enterprise platform t
 * Events - The processed results are stored in the index as events. Events are stored in the index as a group of files that fall into two categories:
 * Raw data - which is the data that you add to the Splunk deployment. The raw data is stored in a compressed format.
 * Index files - which include some metadata files that point to the raw data.
+* These files reside in sets of directories, called buckets, that are organized by age. By default, all of your data is put into a single, preconfigured index called **main**.
 
 The Splunk platform accepts any type of data. In particular, it works with all IT streaming and historical data. 
 * Source of Data - The source of the data can be event logs, web logs, live application logs, network feeds, system metrics, change monitoring, message queues, archive files, and so on.
