@@ -5,7 +5,7 @@
 This repository contains exercises focused on using Splunk Enterprise platform tool for adding data, searching data, and creating simple dashboards.
 
 ## Basics of Splunk Enterprise Tool:
-*Indexing - The process of transforming the data is called indexing. During indexing, the incoming data is processed to enable fast searching and analysis. The index is a flat file repository for the data.
+*Indexing* - The process of transforming the data is called indexing. During indexing, the incoming data is processed to enable fast searching and analysis. The index is a flat file repository for the data.
 **Events** - The processed results are stored in the index as events. Events are stored in the index as a group of files that fall into two categories:
 **Raw data** - which is the data that you add to the Splunk deployment. The raw data is stored in a compressed format.
 **Index files** - which include some metadata files that point to the raw data.
