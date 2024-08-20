@@ -20,6 +20,7 @@ In this project, we will use tutorial data file to upload to Splunk Enterprise p
 #### Expected Output
 
 1. This opens the Search Summary view in the Search app.
+![image](https://github.com/user-attachments/assets/46684a35-3fbf-4afc-80a8-6bba4b7d37c5)
 
 ![image](https://github.com/user-attachments/assets/45e08aac-7e94-4686-b56b-9bb2e4b4aa5e)
 
