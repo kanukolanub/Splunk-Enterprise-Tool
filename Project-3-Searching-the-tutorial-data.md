@@ -110,6 +110,13 @@ Splunk developed the Search Processing Language (SPL) to use with Splunk softwar
     Click the **Visualization** tab.
     By default, the **Visualization** tab opens with a Column chart.
     Click **Column Chart** to open the visualization type selector.
+15. Column, Bar, and Pie charts are listed as the Recommended chart type for this data set.
+    Select the Pie chart.
+    Now, your visualization looks like the following pie chart.
+16. Hover over each slice of the pie to see the count and percentage values for each categoryId.
+17. Click on the STRATEGY slice.
+    categoryId=STRATEGY is added to your search string, replacing the top command. The search runs again.
+
     
 #### Expected Output
 
@@ -121,10 +128,9 @@ Splunk developed the Search Processing Language (SPL) to use with Splunk softwar
    ![image](https://github.com/user-attachments/assets/24fb826b-f50f-4b89-87a8-1b13b09fea3c)
    ![image](https://github.com/user-attachments/assets/c3f0dcfd-1fba-4248-b89e-507acbdc203b)
    ![image](https://github.com/user-attachments/assets/d9b9b85b-881f-40c1-8fbe-37bf4a9650c3)
-
-
-
-
+   ![image](https://github.com/user-attachments/assets/644e6c18-8af9-43b0-bc30-625ff9d77352)
+   ![image](https://github.com/user-attachments/assets/fd05ec2f-8ecb-463e-b096-7be4e0fcaa66)
+   ![image](https://github.com/user-attachments/assets/befcfa19-3b96-4c91-b431-03e2d4fb1986)
 
 ### Exercise 4: use a subsearch.
 
