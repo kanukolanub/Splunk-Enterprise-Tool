@@ -100,8 +100,16 @@ Splunk developed the Search Processing Language (SPL) to use with Splunk softwar
     The results of the top command appear in the **Statistics** tab.
     **View results in the Statistics tab**
     The top command is a **transforming command**. Transforming commands organize the search results into a table. Use transforming commands to generate results that you can use to create visualizations such as column,      line, area, and pie charts. You will learn more about visualizations later in this tutorial.
-
-Because transforming commands return your search results in a table format, the results appear on the **Statistics** tab.
+    Because transforming commands return your search results in a table format, the results appear on the **Statistics** tab.
+13. In this search for successful purchases, seven different category IDs were found. The list shows the category ID values from highest to lowest, based on the frequency of the category ID values in the events.
+    Many of the transforming commands return additional fields that contain useful statistical information. The top command returns two new fields, count and percent.
+    The count field specifies the number of times each value of the categoryId field occurs in the search results.
+    The percent field specifies how large the count is compared to the total count.
+14. **View and format results on the Visualization tab**
+    You can also view the results of transforming searches on the **Visualization** tab, where you can format the chart type.
+    Click the **Visualization** tab.
+    By default, the **Visualization** tab opens with a Column chart.
+    Click **Column Chart** to open the visualization type selector.
     
 #### Expected Output
 
@@ -112,6 +120,8 @@ Because transforming commands return your search results in a table format, the 
    ![image](https://github.com/user-attachments/assets/65447464-8e5f-46ca-9386-e934721eaa66)
    ![image](https://github.com/user-attachments/assets/24fb826b-f50f-4b89-87a8-1b13b09fea3c)
    ![image](https://github.com/user-attachments/assets/c3f0dcfd-1fba-4248-b89e-507acbdc203b)
+   ![image](https://github.com/user-attachments/assets/d9b9b85b-881f-40c1-8fbe-37bf4a9650c3)
+
 
 
 
