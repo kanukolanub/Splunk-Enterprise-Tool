@@ -41,11 +41,29 @@ In this project, we will use tutorial data file to upload to Splunk Enterprise p
 
 #### Steps
 
-1.
+1. The New Search view opens after you run a search.
+2. **preset time ranges** - The time range picker has many preset time ranges that you can select from.
+Click the time range picker to see a list of the time range options. The **Presets** option contains **Real-time, Relative**, and **Other** time ranges.
+**Real-time searches** display a live, streaming view of events. You can specify a window over which to retrieve events.
+**Historical searches** display events from the past. You can restrict your search by specifying a relative time range or a specific date and time range.
+3. In the **Presets option** in the **Relative** list, click Last 30 days.
+The number of events returned should be larger. You changed the time range from Last 24 hours to  Last 30 days.
+4. **Custom time ranges** Use a custom time range when one of the preset time ranges is not precise enough for your search.
+5. **Specify date and time ranges**
+You can also use the **Date Range** and **Date & Time Range** options to specify a custom time range.
+Use **Between** to specify that events must occur between an earliest and latest date.
+Use **Before** to specify that events must occur before a date.
+Use **Since** to specify that events must occur after a date.
+
 
 #### Expected Output
-
-1.
+**Preset time ranges**
+1.The number of events returned should be larger. You changed the time range from Last 24 hours to  Last 30 days.
+![image](https://github.com/user-attachments/assets/ede5bfe8-a336-49f0-80c9-6da314ff3c7b)
+**Custom time ranges**
+![image](https://github.com/user-attachments/assets/fc03c1a1-10e3-47e3-b453-6c0bd8a4d9c2)
+**Specify date and time ranges**
+![image](https://github.com/user-attachments/assets/c28b7414-d012-440c-9d6b-db417b880a97)
 
 
 
