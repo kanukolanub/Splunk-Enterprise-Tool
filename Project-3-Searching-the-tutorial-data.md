@@ -159,4 +159,26 @@ You want to find the single most frequent shopper on the Buttercup Games online 
     This search uses several statistical functions with the stats command. An alias for the distinct_count() function is dc().
    ![image](https://github.com/user-attachments/assets/ac8524cf-5600-4199-b7f9-6cc604f7a82b)
    This search uses the count() function to return the total count of the purchases for the VIP shopper. The dc() function is the distinct_count function. Use this function to count the number of different, or unique,      products that the shopper bought. The values function is used to display the distinct product IDs as a multivalue field.
-**   The drawback to this approach is that you have to run two searches each time you want to build this table. The top purchaser is not likely to be the same person in every time range **
+   **The drawback to this approach is that you have to run two searches each time you want to build this table. The top purchaser is not likely to be the same person in every time range**
+
+**Example 2 shows how to find the most frequent shopper with a subsearch.**
+
+#### Steps
+Let's start with our first requirement, to identify the single most frequent shopper on the Buttercup Games online store.
+1. Copy and paste the following search into the Search bar and run the search. Make sure the time range is All time.
+sourcetype=access_* status=200 action=purchase | top limit=1 clientip | table clientip
+![image](https://github.com/user-attachments/assets/c74e0e71-8ed0-482a-99e7-a9afd00b5e20)
+This search returns the clientip for the most frequent shopper, clientip=87.194.216.51. This search is almost identical to the search in Example 1 Step 1. The difference is the last piped command, | table clientip, which displays the clientip information in a table. Because you specified only the clientip field with the table command, that is the only field returned. The count and percent fields that the top command generated are discarded from the output.
+
+To find what this shopper has purchased, you run a search on the same data. You provide the result of the most frequent shopper search as one of the criteria for the purchases search.
+
+The most frequent shopper search becomes the subsearch for the purchases search. The purchases search is referred to as the outer or primary search. Because you are searching the same data, the beginning of the outer search is identical to the beginning of the subsearch.
+
+A subsearch is enclosed in square brackets [ ] and processed first when the search criteria are parsed.
+
+2. Copy and paste the following search into the Search bar and run the search.
+sourcetype=access_* status=200 action=purchase [search sourcetype=access_* status=200 action=purchase | top limit=1 clientip | table clientip] | stats count, distinct_count(productId), values(productId) by clientip
+Because the top command returns the count and percent fields, the table command is used to keep only the clientip value.
+
+![image](https://github.com/user-attachments/assets/912dd254-9e3e-42ec-9fa4-2caffa06735a)
+These results should match the result of the two searches in Example 1, if you run it on the same time range. If you change the time range, you might see different results because the top purchasing customer will be different.
