@@ -26,11 +26,39 @@ This project covers how to upload data to Splunk Enterprise platform tool.
 * Tools: Splunk Enterprise platform tool.
 * Data: Tutorial data
 
-**NOTE** The tutorial data file is updated daily and contains events that are timestamped for the previous seven days. The tutorial data contains several types of information about the fictitious online store             Buttercup Games). The information includes access.log files, secure.log files, and vendor_sales.log files from mail servers and web accounts.
+**NOTE** The tutorial data file is updated daily and contains events that are timestamped for the previous seven days. The tutorial data contains several types of information about the fictitious online store Buttercup Games). The information includes access.log files, secure.log files, and vendor_sales.log files from mail servers and web accounts.
 
 ### 2. Using the Search Splunk App
 This project covers how to use the Search app on Splunk Enterprise platform tool.
 
-* Key Topics: searching data
+* Key Topics: searching data, search summary view, new search view, specifying time ranges.
 * Tools: Splunk Enterprise platform tool.
 * Data: Tutorial data 
+
+### 3. Searching the tutorial data
+This project covers how to use the Search app on Splunk Enterprise platform tool.
+
+* Key Topics: basic searches and search results, use fields to search, use the search language, use a subsearch.
+* Tools: Splunk Enterprise platform tool.
+* Data: Tutorial data
+
+### 4. Enriching events with lookups
+This project covers how to enable field lookups and search with field lookups using lookup file on Splunk Enterprise platform tool.
+
+* Key Topics: enabling field lookups, search with field lookups
+* Tools: Splunk Enterprise platform tool.
+* Data: Prices.csv.zip file
+
+### 5. Creating reports and charts
+This project covers how to create reports and charts on Splunk Enterprise platform tool.
+
+* Key Topics: save and share your reports, create a basic chart, create an overlay chart and explore visualization options, create a report from custom chart and sparkline chart. 
+* Tools: Splunk Enterprise platform tool.
+* Data: Prices.csv.zip file
+
+### 6. Creating dashboards
+This project covers how to create dashboards on Splunk Enterprise platform tool.
+
+* Key Topics: About dashboards, create dashboards and panels, add more panels to dashboards.
+* Tools: Splunk Enterprise platform tool.
+* Data: Prices.csv.zip file
