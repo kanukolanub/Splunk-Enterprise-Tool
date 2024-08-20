@@ -133,14 +133,30 @@ Splunk developed the Search Processing Language (SPL) to use with Splunk softwar
    ![image](https://github.com/user-attachments/assets/befcfa19-3b96-4c91-b431-03e2d4fb1986)
 
 ### Exercise 4: use a subsearch.
+**scenario**: We will learn how to correlate events by using subsearches.
+
+**A subsearch is a search that is used to narrow down the set of events that you search on. 
+The result of the subsearch is then used as an argument to the primary, or outer, search. Subsearches are enclosed in square brackets within a main search and are evaluated first.**
+
+Let's find the single most frequent shopper on the Buttercup Games online store, and what that shopper has purchased.
+The following examples show why a subsearch is useful. Example 1 shows how to find the most frequent shopper without a subsearch. Example 2 shows how to find the most frequent shopper with a subsearch.
+
+**Example 1 shows how to find the most frequent shopper without a subsearch.**
 
 #### Steps
+You want to find the single most frequent shopper on the Buttercup Games online store and what that shopper has purchased. Use the top command to return the most frequent shopper.
 
-1. 
-
-
-#### Expected Output
-
-1.
-
-
+1. Start a new search.
+2. Change the time range to All time.
+3. To find the shopper who accessed the online shop the most, use this search.
+   sourcetype=access_* status=200 action=purchase | top limit=1 clientip
+   The limit=1 argument specifies to return 1 value. The clientip argument specifies the field to return.
+   ![image](https://github.com/user-attachments/assets/12e858db-e6c9-497f-8569-795acfcdcc8c)
+   This search returns one clientip value, 87.194.216.51, which you will use to identify the VIP shopper. The search also returns a count and a percent.
+   These are the default fields that are returned with the top command.
+4. You now need to run another search to determine how many different products the VIP shopper has purchased. Use the stats command to count the purchases by this VIP customer.
+   sourcetype=access_* status=200 action=purchase clientip=87.194.216.51 | stats count, distinct_count(productId), values(productId) by clientip
+    This search uses several statistical functions with the stats command. An alias for the distinct_count() function is dc().
+   ![image](https://github.com/user-attachments/assets/ac8524cf-5600-4199-b7f9-6cc604f7a82b)
+   This search uses the count() function to return the total count of the purchases for the VIP shopper. The dc() function is the distinct_count function. Use this function to count the number of different, or unique,      products that the shopper bought. The values function is used to display the distinct product IDs as a multivalue field.
+**   The drawback to this approach is that you have to run two searches each time you want to build this table. The top purchaser is not likely to be the same person in every time range **
