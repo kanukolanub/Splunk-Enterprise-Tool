@@ -96,3 +96,57 @@ In the Lookup table file dialog box, select Lookups in the breadcrumbs to return
    The Automatic lookup view appears and the lookup that you configured, autolookup_prices, is in the list. The full name is access_combined_wcookie : **LOOKUP-autolookup_prices**.
    ![image](https://github.com/user-attachments/assets/a087ba21-116d-40bd-adb0-844a28d002c8)
    ![image](https://github.com/user-attachments/assets/69d5e208-0924-4a9b-8433-234a56072a10)
+
+   ### Exercise 4: Search with field lookups
+
+   Now that you have defined the prices_lookup, you can see the fields from that lookup in your search results.
+   ### Steps
+**Show the lookup fields in your search results**
+Because the prices_lookup is an automatic lookup, the fields from the lookup table will automatically appear in your search results.
+
+1. From the Automatic Lookups window, click the Apps menu in the Splunk bar.
+2. Click Search & Reporting to return to the Search app.
+3. Change the time range to All time.
+4. Run the following search to locate all of the web access activity.
+   sourcetype=access_*
+5. Scroll through the list of Interesting Fields in the Fields sidebar, and find the price field.
+   This field is added to your events from the automatic lookup you created.
+6. Next to Selected, click Yes. This moves the prices field from the list of Interesting Fields to the list of Selected Fields in the Fields sidebar.
+7. Close the dialog box.
+8. Scroll through the list of Interesting Fields in the Fields sidebar, and find the productName field.
+9. Click productName to open the summary dialog box for the field.
+10. Next to Selected, click Yes.
+11. Close the dialog box.
+Both the price and the productName fields appear in the Selected Fields list and in the search results.
+Notice that not every event shows the price and the productName fields.
+
+![image](https://github.com/user-attachments/assets/f485288b-ff9d-4f28-bfcd-1258b9213e67)
+
+   ### Exercise 5: Search with the new lookup fields
+When you setup the automatic lookup, you specified that the productId field in your indexed events corresponds to the productId field in the prices.csv file.
+When you run a search, the Splunk software uses that relationship to retrieve, or lookup, data from the prices.csv file.
+This enables you to specify the productName and price fields in your search criteria. The product name and price information does not exist in your indexed fields. This information exists in the lookup file, prices.csv.
+
+**Example: Display the product names and prices**
+You can show a list of the Buttercup Games product names and the corresponding prices by using the stats command to output a table that lists the prices by product. The search also uses the AS keyword and the rename command.
+
+Run the following search using the All time time range.
+sourcetype=access_* |stats values(price) AS Price BY productName |rename productName AS "Product Name"
+
+![image](https://github.com/user-attachments/assets/a920194d-ce0b-4e3a-94c5-4439ed3e4bf9)
+
+**Example: Display the VIP client purchases**
+In Part 4 of this tutorial about subsearches, you created the following search that returned the product IDs of the products that a VIP client purchased.
+sourcetype=access_* status=200 action=purchase [search sourcetype=access_* status=200 action=purchase | top limit=1 clientip | table clientip] | stats count AS "Total Purchased", dc(productId) AS "Total Products", values(productId) AS "Product IDs" BY clientip | rename clientip AS "VIP Customer"
+
+The results of that search are shown in the following image
+![image](https://github.com/user-attachments/assets/16b670d6-cbbf-4a98-9fcf-02c4e5e03f1f)
+The events return the product IDs because that is the only data in your events about the product. However, now that you have defined the automatic lookup, you can return the actual product names.
+
+Make sure that the time range is set to All time.
+Using the same search, change values(productId) to values(productName).
+Run the search.
+sourcetype=access_* status=200 action=purchase [search sourcetype=access_* status=200 action=purchase | top limit=1 clientip | table clientip] | stats count AS "Total Purchased", dc(productId) AS "Total Products", values(productName) AS "Product Names" BY clientip | rename clientip AS "VIP Customer"
+
+The results, like the previous search, show the purchases by the VIP customer. However, the results are more meaningful because the product names, which are coming from the lookup table, appear instead of the more cryptic product IDs.
+![image](https://github.com/user-attachments/assets/83405fab-a468-4512-a0e6-ccc59b01373f)
