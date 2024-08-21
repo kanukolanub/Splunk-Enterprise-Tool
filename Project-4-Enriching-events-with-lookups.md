@@ -36,13 +36,63 @@ In the Permissions dialog box, under **Object should appear in**, select **All a
 7. Click Save.
 The Sharing setting for the prices.csv lookup table is set to Global.
 ![image](https://github.com/user-attachments/assets/bc58d9b5-b720-4563-826a-f2f78000e6e3)
-8. Add the field lookup definition
-It is not sufficient to share the lookup table file with an application. You must define the information in the lookup table file and how that information relates to the fields in your events. This is called a **lookup definition**. In the Lookup table file dialog box, select **Lookups** in the breadcrumbs to return to the Lookups manager.
-9. For Lookup definitions, click Add New.
+
+
+### Exercise 2: Add the field lookup definition
+
+#### Steps
+1. It is not sufficient to share the lookup table file with an application. You must define the information in the lookup table file and how that information relates to the fields in your events. This is called a **lookup definition**. In the Lookup table file dialog box, select **Lookups** in the breadcrumbs to return to the Lookups manager.
+2. For Lookup definitions, click Add New.
 The Add new lookups definitions page opens, where you define the field lookup.
-10. For the Destination app setting, make sure it is set to search to add the lookup definition to the Search app.
-11. For Name, type prices_lookup.
-12. For Type, select File-based.
+3. For the Destination app setting, make sure it is set to search to add the lookup definition to the Search app.
+4. For Name, type prices_lookup.
+5. For Type, select File-based.
     A file-based lookup is typically a static table, such as a CSV file.
-13. For Lookup file, select prices.csv, which is the name of the lookup table file that you created.
+6. For Lookup file, select prices.csv, which is the name of the lookup table file that you created.
 ![image](https://github.com/user-attachments/assets/63b0bbaf-8633-40dd-be38-a6066ae9a9be)
+7. Leave the check boxes for **Configure time-based lookup** and **Advanced options** unchecked.
+8. Click **Save**.
+The **prices_lookup** is now defined as a **file-based lookup**.
+![image](https://github.com/user-attachments/assets/84670476-4b76-452c-b31b-a98df583599b)
+9. **Share the lookup definition with all apps**
+Now that you have created the lookup definition, you need to specify in which apps you want to use the lookup table.
+In the Lookup definitions list, for the prices_lookup, click **Permissions**.
+In the Permissions dialog box, under **Object should appear** in, select **All apps**.
+![image](https://github.com/user-attachments/assets/399d7dee-5ec6-4dfa-8e00-3600c8a5190a)
+10. Click Save.
+In the Lookup definitions page, prices_lookup now has Global permissions.
+You can use this field lookup to add information from the lookup table file to your events. You use the field lookup by specifying the lookup command in a search. Or, you can set the field lookup to run automatically.
+![image](https://github.com/user-attachments/assets/c41d08d4-0c0f-4a73-971b-82804e4d9170)
+
+
+### Exercise 3: Make the lookup automatic
+
+### Steps
+Instead of using the lookup command in your search when you want to apply a field lookup to your events, you can set the lookup to run automatically.
+
+In the Lookup table file dialog box, select Lookups in the breadcrumbs to return to the Lookups manager.
+1. In the Lookups manager, for Automatic lookups, click Add New.
+2. This takes you to the Add new automatic lookups view, where you configure the lookup to run automatically.
+![image](https://github.com/user-attachments/assets/c218d77a-13ae-4e98-96e7-474ab603afbf)
+
+3. For the **Destination app** setting, make sure it is set to search to add the automatic lookup to the **Search** app.
+4. For **Name**, type autolookup_prices.
+5. For **Lookup table**, select **prices_lookup**.
+   The other options are lookup table files that come with the product.
+6. For **Apply to**, the value **sourcetype** is already selected. For **named**, type access_combined_wcookie.
+7. For **Lookup input fields**, type productId in both text boxes.
+   The lookup input fields are the fields that the lookup table and the events have in common. The lookup input fields are used to associate, or link, the fields from the lookup table file with fields in your events.
+   The first text box specifies the field name in the lookup table file.
+   The second text box specifies the field name in your events.
+   The lookup table file has a **productId** column that contains values that match the values in the **productId** field in the events.
+8. For **Lookup output fields**, specify the names of the fields from the lookup table file that you want to add to your event data. You can specify different names.
+   The lookup table file has several fields. You will specify two of the fields in the lookup table to appear in your events.
+   In the first text box, type product_name. This is the field in the prices.csv file that contains the descriptive name for each productId.
+   In the second text box, after the equal sign, type productName. This is the name of the field that will appear in your events for the descriptive name of the product.
+   Click **Add another field** to add another field after the first one.
+   Type price in the first text box. This is the field in the prices.csv file that contains the price for each productId. Let's use the same name for the field that will appear in your events. Type price in the second       text box.
+9. Keep **Overwrite field values unchecked**.
+   Click **Save**.
+   The Automatic lookup view appears and the lookup that you configured, autolookup_prices, is in the list. The full name is access_combined_wcookie : **LOOKUP-autolookup_prices**.
+   ![image](https://github.com/user-attachments/assets/a087ba21-116d-40bd-adb0-844a28d002c8)
+   ![image](https://github.com/user-attachments/assets/69d5e208-0924-4a9b-8433-234a56072a10)
